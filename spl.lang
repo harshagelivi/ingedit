@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <language id="spl" _name="SPL" version="2.0" _section="Sources">
 	<metadata>
-		<property name="mimetypes">text/x-spl</property>
+		<property name="mimetypes">text/x-csrc</property>
 		<property name="globs">*.spl</property>
 	</metadata>
 	<styles>
