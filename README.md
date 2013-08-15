@@ -9,7 +9,7 @@ Copy apl.xml and spl.xml into $HOME/.local/share/mime/packages/          (create
 
 Copy apl.lang and spl.lang into $HOME/.local/share/gtksourceview-3.0/language-specs/
 
-Now open your terminal and cd into $HOME/.local/share/ and run the belo command:
+Now open your terminal and cd into $HOME/.local/share/ and run the below command:
 
 	update-mime-database mime
 	
