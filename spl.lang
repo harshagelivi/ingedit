@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language id="spl" _name="SPL" version="2.0" _section="Sources">
+	<metadata>
+		<property name="mimetypes">text/x-spl</property>
+		<property name="globs">*.spl</property>
+	</metadata>
+	<styles>
+		<style id="comment" _name="Comment" map-to="def:comment"/>
+		<style id="string" _name="String" map-to="def:string"/>
+		<style id="keyword" _name="Keyword" map-to="def:keyword"/>
+		<style id="type" _name="Data Type" map-to="def:type"/>
+		<style id="regs" _name="Registers" map-to="def:comment"/>	
+		<style id="consts" _name="Pre Constants" map-to="def:type"/>			
+	</styles>	
+	<definitions>
+		<context id="spl">
+			<include>
+				<context id="comment" style-ref="comment">
+				    <start>\/\/</start>
+				    <end>$</end>
+				</context>
+				<context id="string" end-at-line-end="true" style-ref="string">
+					<start>"</start>
+					<end>"</end>
+					<include>
+						<context id="escaped-character" style-ref="escaped-character">
+                            				<match>\\.</match>
+                        			</context>
+					</include>
+				</context>
+				<context id="keywords" style-ref="keyword">
+					<keyword>if</keyword>
+					<keyword>else</keyword>
+					<keyword>for</keyword>
+					<keyword>while</keyword>
+					<keyword>break</keyword>
+					<keyword>endif</keyword>
+					<keyword>endwhile</keyword>
+					<keyword>then</keyword>
+					<keyword>do</keyword>
+					<keyword>continue</keyword>
+					<keyword>load</keyword>
+					<keyword>store</keyword>	
+					<keyword>ireturn</keyword>
+					<keyword>alias</keyword>
+					<keyword>breakpoint</keyword>
+					<keyword>read</keyword>
+					<keyword>print</keyword>
+					<keyword>define</keyword>
+					<keyword>halt</keyword>
+					<keyword>inline</keyword>
+				</context>
+				<context ref="def:decimal"/>
+		                <context ref="def:float"/>
+		                
+				<context id="keys2" style-ref="regs">
+					<keyword>PTBR</keyword>
+					<keyword>PTLR</keyword>
+					<keyword>EFR</keyword>
+					<keyword>BP</keyword>
+					<keyword>SP</keyword>
+					<keyword>IP</keyword>
+					<keyword>S[0-9]</keyword>
+					<keyword>S[10-9]</keyword>
+					<keyword>R[0-9]</keyword>
+				</context>
+				<context id="keys3" style-ref="consts">	
+					<keyword>READY_LIST</keyword>
+					<keyword>DISK_LIST</keyword>
+					<keyword>MEM_LIST</keyword>
+					<keyword>FAT</keyword>
+					<keyword>SCRATCHPAD</keyword>
+					<keyword>PAGE_TABLE</keyword>					
+					<keyword>FILE_TABLE</keyword>
+					<keyword>EX_HANDLER</keyword>
+					<keyword>T_INTERRUPT</keyword>
+					<keyword>INTERRUPT</keyword>
+					<keyword>USER_PROG</keyword>
+				</context>
+
+			</include>
+		</context>
+	</definitions>
+</language>

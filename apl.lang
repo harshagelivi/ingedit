@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language id="apl" _name="APL" version="2.0" _section="Sources">
+	<metadata>
+		<property name="mimetypes">text/x-apl</property>
+		<property name="globs">*.apl</property>
+	</metadata>
+	<styles>
+		<style id="comment" _name="Comment" map-to="def:comment"/>
+		<style id="string" _name="String" map-to="def:string"/>
+		<style id="keyword" _name="Keyword" map-to="def:keyword"/>
+		<style id="type" _name="Data Type" map-to="def:type"/>
+		<style id="regs" _name="Registers" map-to="def:comment"/>	
+		<style id="consts" _name="Pre Constants" map-to="def:type"/>			
+	</styles>	
+	<definitions>
+		<context id="apl">
+			<include>
+				<context id="comment" style-ref="comment">
+				    <start>\/\/</start>
+				    <end>$</end>
+				</context>
+				<context id="string" end-at-line-end="true" style-ref="string">
+					<start>"</start>
+					<end>"</end>
+					<include>
+						<context id="escaped-character" style-ref="escaped-character">
+                            				<match>\\.</match>
+                        			</context>
+					</include>
+				</context>
+				<context id="keywords" style-ref="keyword">
+					<keyword>if</keyword>
+					<keyword>else</keyword>
+					<keyword>for</keyword>
+					<keyword>while</keyword>
+					<keyword>break</keyword>
+					<keyword>endif</keyword>
+					<keyword>endwhile</keyword>
+					<keyword>then</keyword>
+					<keyword>do</keyword>
+					<keyword>continue</keyword>	
+					<keyword>return</keyword>
+					<keyword>breakpoint</keyword>
+					<keyword>read</keyword>
+					<keyword>print</keyword>
+					<keyword>define</keyword>
+					<keyword>decl</keyword>
+					<keyword>enddecl</keyword>
+				</context>
+				<context ref="def:decimal"/>
+		                <context ref="def:float"/>
+		                
+				<context id="keys2" style-ref="regs">
+					<keyword>Create</keyword>
+					<keyword>Open</keyword>
+					<keyword>Seek</keyword>
+					<keyword>Read</keyword>
+					<keyword>Write</keyword>
+					<keyword>Delete</keyword>
+					<keyword>Fork</keyword>
+					<keyword>Exec</keyword>
+					<keyword>Exit</keyword>
+					<keyword>Close</keyword>
+					<keyword>Getpid</keyword>
+					<keyword>Getppid</keyword>
+					<keyword>Wait</keyword>
+					<keyword>Signal</keyword>
+				</context>
+				<context style-ref="type">
+					<keyword>integer</keyword>
+					<keyword>string</keyword>
+				</context>
+
+			</include>
+		</context>
+	</definitions>
+</language>
