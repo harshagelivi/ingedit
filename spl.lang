@@ -61,7 +61,7 @@
 					<keyword>SP</keyword>
 					<keyword>IP</keyword>
 					<keyword>S[0-9]</keyword>
-					<keyword>S[10-9]</keyword>
+					<keyword>S1[0-9]</keyword>
 					<keyword>R[0-9]</keyword>
 				</context>
 				<context id="keys3" style-ref="consts">	
